@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Directions, and the cameras on the way</title>
 <meta name="description" content="A sovereign website that uses a paid third-party service, Google Maps, on the owner's own key and budget.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com *.google.com https://*.ggpht.com *.googleusercontent.com blob:; img-src 'self' https://*.googleapis.com https://*.gstatic.com *.google.com *.googleusercontent.com https://s3-eu-west-1.amazonaws.com data:; media-src https://s3-eu-west-1.amazonaws.com; frame-src *.google.com; connect-src 'self' https://*.googleapis.com *.google.com https://*.gstatic.com data: blob:; font-src https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; worker-src blob:; base-uri 'none'; form-action 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <style>
 :root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--line:#e4e1d8}
 @media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#7fc3a0;--line:#2c2d29}}
@@ -19,6 +21,15 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-si
 .family ul{list-style:none;margin:0 auto;padding:.35rem 1rem;display:flex;flex-wrap:wrap;gap:.25rem .9rem;max-width:72rem}
 .family a{color:inherit;opacity:.8;text-decoration:none}.family a:hover,.family a:focus-visible{opacity:1;text-decoration:underline}
 .family .family-sep{margin-left:auto}@media (max-width:40rem){.family .family-sep{margin-left:0}}
+form{display:grid;gap:.8rem;margin:1.5rem 0}label{font-weight:600}
+input{font:inherit;padding:.6rem .7rem;border:1px solid var(--line);border-radius:.4rem;background:transparent;color:var(--fg);width:100%}
+button{font:inherit;padding:.6rem 1rem;border:0;border-radius:.4rem;background:var(--accent);color:var(--bg);cursor:pointer;justify-self:start}
+button:disabled,input:disabled{opacity:.5;cursor:not-allowed}
+.note{border-left:4px solid var(--accent);padding:.6rem 1rem;background:rgba(127,127,127,.08);margin:1rem 0}
+.note p{margin:.3rem 0}#map{height:min(60vh,26rem);margin:1rem 0;border:1px solid var(--line);border-radius:.4rem}
+ol.cams{padding:0;list-style:none}.cam{border-top:1px solid var(--line);padding:.8rem 0}.cam h3{margin:0 0 .2rem;font-size:1rem}
+.meta,.credit{font-size:.85rem}video{width:100%;max-width:32rem;border-radius:.4rem;background:#000}
+#status{min-height:1.6em;font-weight:600;color:var(--fg)}
 </style>
 </head>
 <body>
@@ -38,9 +49,36 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-si
 <main id="main">
 <div class="mark">google-maps.sovereignwebsite.site</div>
 <h1>Directions, and the cameras on the way</h1>
-<p>A sovereign website that uses a paid third-party service, Google Maps, on the owner's own key and budget.</p>
-<p>This site was made by one request to the Sovereign Website pipeline. Its files, its history and its address are in a repository its owner controls, and can move anywhere.</p>
-<footer>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/Site__google-maps">github.com/SovereignWebsite/Site__google-maps</a>.</footer>
+<p>Type two addresses. Google Maps gives the route, and this page lists the public traffic cameras within 150 metres of it, in the order you will pass them. Press Play on one to see it, from its operator.</p>
+
+<div class="note" id="no-key" hidden>
+<p><strong>Not switched on yet.</strong> This site uses Google Maps on its owner's own key and budget, and the owner has not set the key yet. Everything else is here, in the open.</p>
+</div>
+
+<form id="route-form" autocomplete="on">
+  <label for="from">From</label>
+  <input id="from" name="from" required placeholder="for example, King's Cross, London">
+  <label for="to">To</label>
+  <input id="to" name="to" required placeholder="for example, Hammersmith, London">
+  <button type="submit">Show the route and its cameras</button>
+</form>
+<p class="small">When you press the button, this page loads Google Maps and sends Google the two addresses. Nothing is sent to anyone before you press it, and this site keeps nothing.</p>
+<p id="status" role="status" aria-live="polite"></p>
+
+<div id="map" hidden></div>
+<section id="results" hidden aria-labelledby="cams-title">
+  <h2 id="cams-title">Cameras on the way</h2>
+  <ol class="cams" id="cameras"></ol>
+</section>
+
+<section aria-labelledby="why-title">
+  <h2 id="why-title">Why this is a sovereign website</h2>
+  <p>It uses a paid service from someone else, and still belongs to its owner. The key, the budget and the daily limit are the owner's own, in the owner's Google account; nothing runs on our servers. The site is plain files in a repository the owner controls: change the key, or swap Google for another map, and the rest stays.</p>
+  <p>The cameras come from the open camera file of <a href="https://live.promptugal.news/">live.promptugal.news</a>, metadata only, under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> from PrompTugal.news. This site keeps a copy of the cameras with their operator's own position (889 of 913, most of them Transport for London's); the 24 whose position is only a town's centre are left out. A camera's picture is never stored here: it comes from its operator when you press Play, under the operator's terms, shown with each camera.</p>
+</section>
+<footer>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Text CC BY 4.0. Camera list from live.promptugal.news, CC BY 4.0. Source: <a href="https://github.com/SovereignWebsite/Site__google-maps">github.com/SovereignWebsite/Site__google-maps</a>.</footer>
 </main>
+<script src="config.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
