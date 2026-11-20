@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Directions, and the cameras on the way</title>
 <meta name="description" content="A sovereign website that uses a paid third-party service, Google Maps, on the owner's own key and budget.">
+<link rel="canonical" href="https://google-maps.sovereignwebsite.site/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Directions, and the cameras on the way">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://google-maps.sovereignwebsite.site/">
+<meta property="og:title" content="Directions, and the cameras on the way">
+<meta property="og:description" content="A sovereign website that uses a paid third-party service, Google Maps, on the owner's own key and budget.">
+<meta property="og:image" content="https://google-maps.sovereignwebsite.site/assets/share/card-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Directions, and the cameras on the way: Google Maps on the owner&#x27;s own key and budget">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Directions, and the cameras on the way">
+<meta name="twitter:description" content="A sovereign website that uses a paid third-party service, Google Maps, on the owner's own key and budget.">
+<meta name="twitter:image" content="https://google-maps.sovereignwebsite.site/assets/share/card-1200x630.jpg">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com *.google.com https://*.ggpht.com *.googleusercontent.com blob:; img-src 'self' https://*.googleapis.com https://*.gstatic.com *.google.com *.googleusercontent.com https://s3-eu-west-1.amazonaws.com data:; media-src https://s3-eu-west-1.amazonaws.com; frame-src *.google.com; connect-src 'self' https://*.googleapis.com *.google.com https://*.gstatic.com data: blob:; font-src https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; worker-src blob:; base-uri 'none'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <style>
@@ -30,6 +46,7 @@ button:disabled,input:disabled{opacity:.5;cursor:not-allowed}
 ol.cams{padding:0;list-style:none}.cam{border-top:1px solid var(--line);padding:.8rem 0}.cam h3{margin:0 0 .2rem;font-size:1rem}
 .meta,.credit{font-size:.85rem}video{width:100%;max-width:32rem;border-radius:.4rem;background:#000}
 #status{min-height:1.6em;font-weight:600;color:var(--fg)}
+.site-links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin-bottom:.8rem;font-size:.95rem}.site-links a{font-weight:600}
 </style>
 </head>
 <body>
@@ -76,7 +93,8 @@ ol.cams{padding:0;list-style:none}.cam{border-top:1px solid var(--line);padding:
   <p>It uses a paid service from someone else, and still belongs to its owner. The key, the budget and the daily limit are the owner's own, in the owner's Google account; nothing runs on our servers. The site is plain files in a repository the owner controls: change the key, or swap Google for another map, and the rest stays.</p>
   <p>The cameras come from the open camera file of <a href="https://live.promptugal.news/">live.promptugal.news</a>, metadata only, under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> from PrompTugal.news. This site keeps a copy of the cameras with their operator's own position (889 of 913, most of them Transport for London's); the 24 whose position is only a town's centre are left out. A camera's picture is never stored here: it comes from its operator when you press Play, under the operator's terms, shown with each camera.</p>
 </section>
-<footer>A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Text CC BY 4.0. Camera list from live.promptugal.news, CC BY 4.0. Source: <a href="https://github.com/SovereignWebsite/Site__google-maps">github.com/SovereignWebsite/Site__google-maps</a>.</footer>
+<footer><nav class="site-links" aria-label="About this site"><a href="start/">Start here</a> <a href="agents/">Use with your AI</a> <a href="admin/">How this site was made</a></nav>
+A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Text CC BY 4.0. Camera list from live.promptugal.news, CC BY 4.0. Source: <a href="https://github.com/SovereignWebsite/Site__google-maps">github.com/SovereignWebsite/Site__google-maps</a>.</footer>
 </main>
 <script src="config.js"></script>
 <script src="app.js"></script>
